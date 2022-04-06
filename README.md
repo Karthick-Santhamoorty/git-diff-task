@@ -8,6 +8,8 @@ http://localhost:3000/repositories/karthick-rs-webdev/color-shader/commit/0cfee5
 # Available Scripts
 
 In the project directory, you can run:
+### `npm install`
+and then run
 ### `npm start`
 
 Runs the app in the development mode.\
