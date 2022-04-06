@@ -1,13 +1,77 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --text-body: #39496a;
+  --text-muted: #6d727c;
+  --text-link: #1c7cd6;
+  --text-primary: #657b83;
+  --text-secondary: #6078a9;
+  --diff-background-color: initial;
+  --diff-text-color: initial;
+  --diff-font-family: Consolas, Courier, monospace;
+  --diff-selection-background-color: #b3d7ff;
+  --diff-gutter-insert-background-color: #d8ffcb !important;
+  --diff-gutter-delete-background-color: #ffe4e9 !important;
+  --diff-gutter-selected-background-color: #fffce0;
+  --diff-code-insert-background-color: #d8ffcb !important;
+  --diff-code-delete-background-color: #ffe4e9 !important;
+  --diff-code-insert-edit-background-color: #c0dc91;
+  --diff-code-delete-edit-background-color: #f39ea2;
+  --diff-code-selected-background-color: #fffce0;
+  --diff-omit-gutter-line-color: #cb2a1d;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.diff-gutter.diff-gutter-normal, 
+.diff-gutter.diff-gutter-insert,
+.diff-gutter.diff-gutter-delete{
+  color: var(--text-secondary) !important;
+}
+.diff-code.diff-code-normal,
+.diff-code.diff-code-insert,
+.diff-code.diff-code-delete{
+  color: var(--text-primary) !important;
+}
+body {
+  padding: 10px 20px 10px 20px;
+}
+.header {
+  color: #39496a;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+.avatar-img {
+  width: 51px;
+  height: 51px;
+}
+.text-color-muted {
+  color: var(--text-muted);
+}
+.text-color-body {
+  color: var(--text-body);
+}
+.text-color-link {
+  color: var(--text-link);
+}
+.paret-sha {
+  font-family: "Courier New", Bold;
+  font-size: 13px;
+}
+.accordion .fa {
+  margin-right: 0.5rem;
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+}
+.diff-file-name {
+  font-size: 14px;
+}
+.loader {
+  position: fixed;
+  overflow-y: hidden;
+  top: 50%;
+}
+.diff-border{
+  border: 1px solid #e7ebf1;
+}
+.diff-changes-div{
+  font-family: 'Courier New', Courier, Bold;
+  font-size: 12px;
 }
