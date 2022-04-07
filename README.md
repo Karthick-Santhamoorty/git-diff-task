@@ -5,6 +5,9 @@
 3. URL looks like- /repositories/:owner/:repository/commit/commitSHA
 4. This is the test link you can go there and see output.
 http://localhost:3000/repositories/karthick-rs-webdev/color-shader/commit/0cfee5ce48f73c87b7266588ee4b151ab14f840c 
+
+# Connect react to node
+run node project(https://github.com/Karthick-Santhamoorty/git-diff-task-node.git) simultaneously in 8000 port so that react can get api data from backend.
 # Available Scripts
 
 In the project directory, you can run:

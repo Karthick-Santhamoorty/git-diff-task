@@ -18,11 +18,11 @@ function GitDiff() {
   const getApiData = async () => {
     const [diffResponse, commitResponse] = await Promise.all([
       axios.get(
-        `https://github.com/${owner}/${repository}/commit/${commitId}.diff`
+        `/diff-data/repositories/${owner}/${repository}/commit/${commitId}`
       ),
       axios.get(
-        `https://api.github.com/repos/${owner}/${repository}/commits/${commitId}`
-      ),
+        `/git-data/repositories/${owner}/${repository}/commit/${commitId}`
+      )
     ]).catch((error) => {
       setError(true);
       if (error.response.status === 404) {
@@ -31,9 +31,9 @@ function GitDiff() {
         setErrorState(500);
       }
     });
-    const diffArray = diffResponse.data.split(/(?=diff --git )/g);
+    const diffArray = diffResponse.data.data.split(/(?=diff --git )/g);
     const diffData = [];
-    commitResponse.data.files.forEach((data, index) => {
+    commitResponse.data.data.files.forEach((data, index) => {
       const [respObject] = parseDiff(diffArray[index]);
       diffData.push({
         diffData: respObject,
@@ -47,12 +47,12 @@ function GitDiff() {
     });
     setGitDiffData(diffData);
     setGitCommitData({
-      author: commitResponse.data.commit.author,
-      committer: commitResponse.data.commit.committer,
-      commitMessage: commitResponse.data.commit.message,
-      parents: commitResponse.data.parents,
-      commidId: commitResponse.data.sha,
-      commitDifferenceDate: Math.round((new Date().getTime() - new Date(commitResponse.data.commit.author.date).getTime()) / (1000 * 60 * 60 * 24))?? "1"
+      author: commitResponse.data.data.commit.author,
+      committer: commitResponse.data.data.commit.committer,
+      commitMessage: commitResponse.data.data.commit.message,
+      parents: commitResponse.data.data.parents,
+      commidId: commitResponse.data.data.sha,
+      commitDifferenceDate: Math.round((new Date().getTime() - new Date(commitResponse.data.data.commit.author.date).getTime()) / (1000 * 60 * 60 * 24))?? "1"
     });
     setGitDataLoaded(true);
   };
